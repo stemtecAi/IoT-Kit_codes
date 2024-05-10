@@ -1,0 +1,193 @@
+[
+    {
+        "id": "6802042ee5344375",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "dd0be9eb09fba4ce",
+        "type": "mqtt in",
+        "z": "6802042ee5344375",
+        "name": "",
+        "topic": "IoTKit/temperature",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "03a389c94a684b48",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 190,
+        "y": 460,
+        "wires": [
+            [
+                "ef98bc8afd0a5e77"
+            ]
+        ]
+    },
+    {
+        "id": "ef98bc8afd0a5e77",
+        "type": "ui_gauge",
+        "z": "6802042ee5344375",
+        "name": "",
+        "group": "5cbcc9c5163525ac",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Temperature",
+        "label": "Celsius",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "50",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "25",
+        "seg2": "30",
+        "diff": false,
+        "className": "",
+        "x": 550,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "b40e39e39ed62655",
+        "type": "mqtt in",
+        "z": "6802042ee5344375",
+        "name": "",
+        "topic": "IoTKit/humidity",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "03a389c94a684b48",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 180,
+        "y": 600,
+        "wires": [
+            [
+                "82f68171f63db074"
+            ]
+        ]
+    },
+    {
+        "id": "82f68171f63db074",
+        "type": "ui_chart",
+        "z": "6802042ee5344375",
+        "name": "",
+        "group": "5cbcc9c5163525ac",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "chart",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "40",
+        "ymax": "150",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 550,
+        "y": 560,
+        "wires": [
+            [
+                "8d62ca90d9012378"
+            ]
+        ]
+    },
+    {
+        "id": "8d62ca90d9012378",
+        "type": "debug",
+        "z": "6802042ee5344375",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 780,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "03a389c94a684b48",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "5cbcc9c5163525ac",
+        "type": "ui_group",
+        "name": "Humidity",
+        "tab": "5e57ea9c1157cee0",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "5e57ea9c1157cee0",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
