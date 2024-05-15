@@ -1,0 +1,155 @@
+[
+    {
+        "id": "6802042ee5344375",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "dd0be9eb09fba4ce",
+        "type": "mqtt in",
+        "z": "6802042ee5344375",
+        "name": "",
+        "topic": "IoTKit/button/state",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "03a389c94a684b48",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 110,
+        "y": 440,
+        "wires": [
+            [
+                "3d2d3abd582abc85"
+            ]
+        ]
+    },
+    {
+        "id": "90cf2d56987c6216",
+        "type": "mqtt out",
+        "z": "6802042ee5344375",
+        "name": "Relay",
+        "topic": "IoTKit/relay/control",
+        "qos": "2",
+        "retain": "true",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "03a389c94a684b48",
+        "x": 550,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "3d2d3abd582abc85",
+        "type": "ui_button",
+        "z": "6802042ee5344375",
+        "name": "",
+        "group": "e8a549b202dc7ae8",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "label": "ON",
+        "tooltip": "",
+        "color": "RED",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "1",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 330,
+        "y": 440,
+        "wires": [
+            [
+                "90cf2d56987c6216"
+            ]
+        ]
+    },
+    {
+        "id": "855fc2a5a81c878b",
+        "type": "ui_button",
+        "z": "6802042ee5344375",
+        "name": "",
+        "group": "e8a549b202dc7ae8",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "label": "OFF",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "0",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 330,
+        "y": 500,
+        "wires": [
+            [
+                "90cf2d56987c6216"
+            ]
+        ]
+    },
+    {
+        "id": "03a389c94a684b48",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "e8a549b202dc7ae8",
+        "type": "ui_group",
+        "name": "Relay Control",
+        "tab": "5e57ea9c1157cee0",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "5e57ea9c1157cee0",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
