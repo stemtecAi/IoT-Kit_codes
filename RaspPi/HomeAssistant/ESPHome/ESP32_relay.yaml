@@ -1,0 +1,55 @@
+esphome:
+  name: esp32-relay
+  friendly_name: ESP32_Relay
+
+esp32:
+  board: esp32dev
+  framework:
+    type: arduino
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  encryption:
+    key: "YH/Dt8ogLS2JApaLscQV+xp8s941mN0HKaAkmBUGcIk="
+
+ota:
+  password: "d7f1cebf66526f9bb90b575c6f82398a"
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Esp32-Relay Fallback Hotspot"
+    password: "KEokxeL7EuGW"
+
+captive_portal:
+
+web_server:
+
+output:
+  - platform: gpio
+    pin: GPIO2
+    id: relay
+    inverted: false
+
+light:
+  - platform: binary
+    id: relay_1
+    name: "Relay"
+    output: relay
+
+
+binary_sensor:
+  - platform: gpio
+    pin: GPIO4
+    name: "Relay Toggle"
+    on_press:
+      then:
+        - light.toggle: relay_1
+
+
