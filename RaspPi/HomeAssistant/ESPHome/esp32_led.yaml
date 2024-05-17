@@ -1,0 +1,45 @@
+esphome:
+  name: esp32-led
+  friendly_name: ESP32-LED
+
+esp32:
+  board: esp32dev
+  framework:
+    type: arduino
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  encryption:
+    key: "48/jr5QqyF77V8+ELwbLn7EWWPY9DOy6usxW4TSh/G4="
+
+ota:
+  password: "47819a124c8565ca3c0f6b72e199e930"
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Esp32-Led Fallback Hotspot"
+    password: "8AA6TQgguJC4"
+
+captive_portal:
+
+web_server:
+
+output:
+  - platform: gpio
+    pin: GPIO5
+    id: light_output
+    inverted: false
+
+light:
+  - platform: binary
+    name: "IoTKit_Lamp"
+    output: light_output
+  
+    
